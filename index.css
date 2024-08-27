@@ -1,0 +1,23 @@
+.navbar {
+  background-color: #1b2a49; /* Dark blue color */
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+.logo-img {
+  height: 40px; /* Adjust the height as needed */
+  width: auto; /* Ensure aspect ratio is maintained */
+}
+
+.navbar-nav .nav-link {
+  color: white !important;
+}
+
+/* Ensure the logo looks good on mobile */
+@media (max-width: 576px) {
+  .logo-img {
+    height: 30px; /* Smaller logo for mobile */
+  }
+}
