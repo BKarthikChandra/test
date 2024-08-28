@@ -40,15 +40,15 @@
     </div>
   </nav>
 
-  <div class="full-screen">
+  <div class="full-screen animate-on-scroll">
     <h1>Sr4Dx: Pioneering Analytics & Digital Transformation</h1>
     <h2>In Green Energy Solutions</h2>
   </div>
 
-  <div id="solutions-section" class="solutions-section">
+  <div id="solutions-section" class="solutions-section animate-on-scroll">
     <div class="container text-center">
       <div class="row justify-content-center">
-        <div class="col-lg-10 solutions-text animate">
+        <div class="col-lg-10 solutions-text">
           <h2>Our Solutions</h2>
           <p>
             In a dynamic energy landscape, Sr4Dx stands at the forefront of innovation with solutions designed for efficiency and sustainability. We specialize in integrating renewable energy sources such as solar, wind, and hydrogen into existing grids, facilitating a smooth transition to a greener future. Our advanced technology ensures utilities can optimize their operations, cut costs, and comply with regulatory standards, while enhancing grid resilience through AI and machine learning.
@@ -61,10 +61,10 @@
     </div>
   </div>
 
-  <div id="product-section" class="product-section">
+  <div id="product-section" class="product-section animate-on-scroll">
     <div class="container text-center">
       <div class="row justify-content-center">
-        <div class="col-lg-10 product-text animate">
+        <div class="col-lg-10 product-text">
           <h3>Our Products</h3>
           <p>
             Meet <strong>Datasphere</strong>, our state-of-the-art cloud-based analytics platform tailored for the renewable energy sector. Datasphere seamlessly integrates and analyzes data from diverse sources like solar panels, wind turbines, hydrogen systems, and electric vehicles. This powerful platform enables organizations to make informed decisions, optimizing energy production and distribution with precision.
@@ -77,18 +77,18 @@
     </div>
   </div>
 
-  <div id="contact-section" class="contact-section">
+  <div id="contact-section" class="contact-section animate-on-scroll">
     <div class="container text-center">
       <div class="row justify-content-center">
-        <div class="col-lg-10 contact-text animate">
+        <div class="col-lg-10 contact-text">
           <h1 class="mb-4">Contact Us</h1>
           <p class="lead mb-4">
             We welcome your inquiries, feedback, or support needs. Reach out to us via the contact details below, and our team will respond promptly.
           </p>
           <p>
-            <strong>Phone:</strong> +123-456-7890<br/>
-            <strong>Email:</strong> hello@reallygreatsite.com<br/>
-            <strong>Address:</strong> 123 Anywhere St., Any City<br/>
+            <strong>Phone:</strong> +123-456-7890<br />
+            <strong>Email:</strong> hello@reallygreatsite.com<br />
+            <strong>Address:</strong> 123 Anywhere St., Any City<br />
             <strong>Website:</strong> <a href="http://www.reallygreatsite.com" target="_blank" rel="noopener noreferrer">www.reallygreatsite.com</a>
           </p>
         </div>
@@ -97,7 +97,7 @@
   </div>
 
   <div class="footer">
-    <p>© 2024 The Odin Project. All rights reserved.</p>
+    <p>© 2024 Sr4Dx. All rights reserved.</p>
   </div>
 
   <!-- Bootstrap JS and dependencies -->
@@ -118,17 +118,16 @@
       });
 
       // Intersection Observer for triggering animations
-      const animateElements = document.querySelectorAll('.animate');
+      const animateElements = document.querySelectorAll('.animate-on-scroll');
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            // Temporarily remove the in-view class to retrigger animation
-            entry.target.classList.remove('in-view');
-            setTimeout(() => {
-              entry.target.classList.add('in-view');
-            }, 50); // Re-add the class after a short delay
+            entry.target.classList.add('animate-visible');
+            observer.unobserve(entry.target);
           }
         });
+      }, {
+        threshold: 0.1
       });
 
       // Observe each animated element
