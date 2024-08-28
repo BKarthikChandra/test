@@ -1,19 +1,25 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My First Webpage</title>
+  <title>Sr4Dx | Green Energy Solutions</title>
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="index.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="#">
-      <img src="Sr4dx1.jpg" alt="Logo" class="logo-img">
+      <img src="Sr4dx1.jpg" alt="Sr4Dx Logo" class="logo-img">
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -22,21 +28,114 @@
           <a class="nav-link" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Solutions</a>
+          <a class="nav-link" href="#solutions-section">Our Solutions</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Products</a>
+          <a class="nav-link" href="#product-section">Our Products</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link" href="#contact-section">Contact Us</a>
         </li>
       </ul>
     </div>
   </nav>
 
+  <div class="full-screen">
+    <h1>Sr4Dx: Pioneering Analytics & Digital Transformation</h1>
+    <h2>In Green Energy Solutions</h2>
+  </div>
+
+  <div id="solutions-section" class="solutions-section">
+    <div class="container text-center">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 solutions-text animate">
+          <h2>Our Solutions</h2>
+          <p>
+            In a dynamic energy landscape, Sr4Dx stands at the forefront of innovation with solutions designed for efficiency and sustainability. We specialize in integrating renewable energy sources such as solar, wind, and hydrogen into existing grids, facilitating a smooth transition to a greener future. Our advanced technology ensures utilities can optimize their operations, cut costs, and comply with regulatory standards, while enhancing grid resilience through AI and machine learning.
+          </p>
+          <p>
+            Our holistic approach to energy management includes predictive insights that help anticipate demand fluctuations and optimize distribution. By leveraging cutting-edge technology, we provide solutions that not only meet current needs but also future-proof energy systems against evolving challenges, driving forward the shift to a sustainable and resilient energy future.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="product-section" class="product-section">
+    <div class="container text-center">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 product-text animate">
+          <h3>Our Products</h3>
+          <p>
+            Meet <strong>Datasphere</strong>, our state-of-the-art cloud-based analytics platform tailored for the renewable energy sector. Datasphere seamlessly integrates and analyzes data from diverse sources like solar panels, wind turbines, hydrogen systems, and electric vehicles. This powerful platform enables organizations to make informed decisions, optimizing energy production and distribution with precision.
+          </p>
+          <p>
+            With its scalable architecture and user-friendly interface, Datasphere is designed to accommodate the needs of both small startups and large enterprises. Its advanced machine learning capabilities forecast trends, enhance operational efficiency, and drive cost reductions, making it a vital tool for any organization committed to advancing sustainability and embracing innovation in the energy sector.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="contact-section" class="contact-section">
+    <div class="container text-center">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 contact-text animate">
+          <h1 class="mb-4">Contact Us</h1>
+          <p class="lead mb-4">
+            We welcome your inquiries, feedback, or support needs. Reach out to us via the contact details below, and our team will respond promptly.
+          </p>
+          <p>
+            <strong>Phone:</strong> +123-456-7890<br/>
+            <strong>Email:</strong> hello@reallygreatsite.com<br/>
+            <strong>Address:</strong> 123 Anywhere St., Any City<br/>
+            <strong>Website:</strong> <a href="http://www.reallygreatsite.com" target="_blank" rel="noopener noreferrer">www.reallygreatsite.com</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>© 2024 The Odin Project. All rights reserved.</p>
+  </div>
+
   <!-- Bootstrap JS and dependencies -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Smooth scrolling for navbar links
+      $('a.nav-link[href^="#"]').on('click', function (event) {
+        var target = $(this.getAttribute('href'));
+        if (target.length) {
+          event.preventDefault();
+          $('html, body').animate({
+            scrollTop: target.offset().top
+          }, 1000);
+        }
+      });
+
+      // Intersection Observer for triggering animations
+      const animateElements = document.querySelectorAll('.animate');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Temporarily remove the in-view class to retrigger animation
+            entry.target.classList.remove('in-view');
+            setTimeout(() => {
+              entry.target.classList.add('in-view');
+            }, 50); // Re-add the class after a short delay
+          }
+        });
+      });
+
+      // Observe each animated element
+      animateElements.forEach(el => observer.observe(el));
+    });
+  </script>
+
 </body>
+
 </html>
